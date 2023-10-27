@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>User Count</title>
+</head>
+<body>
+  <h1>Active Users: <span id="user-count">0</span></h1>
+
+  <script src="/socket.io/socket.io.js"></script>
+  <script>
+    const socket = io();
+    const userCountElement = document.getElementById('user-count');
+
+    socket.on('userCount', (count) => {
+      userCountElement.innerText = count;
+    });
+  </script>
+</body>
+</html>
